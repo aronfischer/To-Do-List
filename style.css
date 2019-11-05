@@ -1,0 +1,589 @@
+html {
+  height: 100vh;
+  /* background: url("https://cdn.pixabay.com/photo/2017/02/07/09/02/wood-2045379_1280.jpg"); */
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+h1 {
+  color: #5fa8d3;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.default-div {
+  background: white;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 800px;
+  height: 550px;
+  position: relative;
+  left: 50%;
+  margin-left: -400px;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  text-align: center;
+  overflow: scroll;
+  background-color: transparent;
+  border: 2px solid #5fa8d3;
+}
+
+.projects-overview {
+  border-right: 2px solid lightgray;
+  display: grid;
+  grid-template-rows: 60px 60px 60px 1fr; /*60px an zweiter stelle*/
+}
+
+.projects-overview > * {
+  display: grid; /*To vertically center the text*/
+  align-items: center;
+}
+
+.folder-name {
+  border-bottom: 1px solid lightgray;
+  text-align: center;
+}
+
+.close-folder-btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-bottom-right-radius: 30px;
+  text-align: center;
+  line-height: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background: rgba(95, 168, 211, 0.2);
+  color: transparent;
+}
+
+.close-folder-btn:hover {
+  visibility: visible;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  background: white;
+  color: black;
+}
+
+.close-folder-btn span {
+  margin-left: 20px;
+}
+
+.project-name-label {
+  border-bottom: 1px solid lightgray;
+}
+
+.task-sec {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-rows: 60px minmax(60px, min-content) 1fr;
+}
+
+.task-sec > * {
+  display: grid; /*To vertically center the text*/
+  align-items: center;
+}
+
+.task-title {
+  border-bottom: 1px solid lightgray;
+}
+
+.task-manager {
+  border-bottom: 1px solid lightgray;
+}
+
+/* Toggle create new Task */
+
+.toggle-create-task button {
+  width: 80%;
+  height: 40px;
+  background: transparent;
+  border: 2px solid #5fa8d3;
+  border-radius: 7px;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: #5fa8d3;
+  outline: none;
+}
+
+.toggle-create-task button:hover {
+  filter: brightness(80%);
+}
+
+/* Create new Task Inputs */
+
+.create-task {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 5px;
+  margin: 10px 15px;
+  background: rgba(95, 168, 211, 0.4);
+  border: 3px solid #5fa8d3;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px rgba(95, 168, 211);
+  display: none;
+}
+
+input,
+textarea {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.create-task div:nth-of-type(4) {
+  grid-column: 1 / 4;
+}
+
+.create-task div:nth-of-type(3) {
+  grid-column: 1 / -1;
+}
+
+.create-task div:nth-of-type(2) {
+  grid-column: 3 / 5;
+  width: 80%;
+}
+
+.create-task div:nth-of-type(1) {
+  grid-column: 1 / 3;
+}
+
+.create-task div:last-of-type {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+button[type="submit"],
+button[class="cancel-task-btn"],
+button[class="cancel-project-btn"] {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border-radius: 50%;
+  border: 1px solid #5fa8d3;
+  text-align: center;
+  margin-top: 50px;
+  margin-right: 20px;
+  outline: none;
+  box-shadow: 1px 1px 5px #5fa8d3;
+}
+
+.cancel-task-btn .fa-times {
+  color: #5fa8d3;
+  font-size: 30px;
+}
+
+.create-task button:hover,
+.toggle-create-task button:hover {
+  filter: brightness(80%);
+}
+.create-task button:active,
+.toggle-create-task button:active {
+  filter: brightness(20%);
+  box-shadow: 1px 1px 2px #5fa8d3;
+}
+
+.create-task button[type="submit"] i {
+  position: relative;
+  font-size: 30px;
+  color: #5fa8d3;
+}
+
+.form {
+  width: 90%;
+  height: 50px;
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+}
+
+.form-textarea {
+  width: 90%;
+  height: 100px;
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+}
+
+.form textarea {
+  width: 100%;
+  height: 100%;
+}
+
+.content-textarea {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  height: 50%;
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: 20px;
+  border: none;
+  outline: none;
+}
+
+.form textarea {
+  padding-top: 30px;
+  height: 100%;
+}
+
+.form label {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid black;
+}
+
+.form label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 100%;
+  width: 100%;
+  border-bottom: 3px solid #5fa8d3;
+  transform: translateX(-100%);
+  transition: all 0.3s ease;
+}
+
+.content {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.form input:focus + .label .content,
+.form input:valid + .label .content,
+.form textarea:focus + .label .content,
+.form textarea:valid + .label .content {
+  transform: translateY(-150%);
+  font-size: 14px;
+  color: #5fa8d3;
+}
+
+.form input:focus + .label::after,
+.form input:valid + .label::after,
+.form textarea:focus + .label::after,
+.form textarea:valid + .label::after {
+  transform: translate(0%);
+}
+
+.form textarea:focus + .label .content,
+.form textarea:valid + .label .content {
+  position: relative;
+  top: 10px;
+  transform: translateY(-150%);
+  font-size: 14px;
+  color: #5fa8d3;
+}
+
+.form input[type="date"] {
+  color: transparent;
+}
+
+.form input[type="date"]:focus,
+.form input[type="date"]:valid {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* New Task */
+
+.task-display {
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: minmax(71.66px, min-content);
+  overflow: scroll;
+  padding-bottom: 50px;
+}
+
+.task {
+  border-bottom: 1px solid lightgray;
+  height: 100%;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 70px;
+  grid-template-rows: repeat(3, minmax(17px, auto)) minmax(0px, min-content);
+  box-shadow: 2px 2px 5px #5fa8d3 inset, 2px 2px 5px #5fa8d3;
+  border-radius: 5px;
+  background-color: rgba(95, 168, 211, 0.2);
+  padding-left: 5px;
+  margin: 0 2px;
+  margin-right: 5px;
+}
+
+.edit-task-input {
+  border: none;
+  height: 20px;
+  margin: 2px 0;
+  border-radius: 5px;
+  background: rgba(95, 168, 211, 0.2);
+  padding-left: 10px;
+  animation: fading 5s ease-in-out infinite;
+}
+
+@keyframes fading {
+  0% {
+    background-color: rgba(95, 168, 211, 0.1);
+  }
+  30%,
+  70% {
+    background-color: rgba(95, 168, 211, 0.2);
+  }
+  100% {
+    background-color: rgba(95, 168, 211, 0.1);
+  }
+}
+
+.edit-task-input:first-child {
+  margin-top: 8px;
+}
+
+.fa-chevron-down {
+  font-size: 12px;
+  color: grey;
+}
+
+.task > * {
+  margin-left: 5px;
+}
+.wrapper {
+  grid-row: 4 / 5;
+  grid-column: 1 / 3;
+  text-align: center;
+  position: relative;
+  /* bottom: 10px; */
+  padding: 0;
+  margin: 0;
+}
+.notes {
+  display: block;
+  height: min-content;
+  font-size: 12px;
+  text-align: left;
+  padding-left: 5px;
+  padding-bottom: 15px;
+}
+
+.not-visible {
+  display: none;
+  /* grid-row: 4 / 5;
+  grid-column: 1 / 2; */
+}
+
+.title {
+  grid-column: 1 / 2;
+  grid-row: 1 /2;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+  align-self: start;
+  padding-top: 2px;
+  line-height: 20px;
+}
+
+.description {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  font-size: 12px;
+  color: grey;
+  align-self: center;
+}
+
+.deadline {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+  font-size: 12px;
+  font-weight: bold;
+  align-self: end;
+}
+
+/* Project section */
+/* Project create */
+
+.project-create {
+  display: grid;
+  grid-template-columns: 1fr 25px 25px;
+  margin-right: 0;
+  align-items: start;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  align-items: end;
+}
+
+.project-create button[type="submit"],
+.project-create button[class="cancel-project-btn"] {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #5fa8d3;
+  border: none;
+  box-shadow: none;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  outline: none;
+}
+
+.project-create button[type="submit"]:hover,
+.project-create button[class="cancel-project-btn"]:hover {
+  filter: brightness(80%);
+}
+
+.project-create button[type="submit"]:active,
+.project-create button[class="cancel-project-btn"]:active {
+  filter: brightness(20%);
+}
+
+/* Project Display */
+.project-display {
+  display: grid;
+  grid-auto-rows: minmax(50px, min-content);
+  grid-template-columns: 1fr;
+  overflow: scroll;
+  margin-left: 10px;
+  align-items: end;
+}
+
+.project-display > * {
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 5px;
+}
+
+.project-wrapper {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 60px;
+  border-left: 1px solid lightgray;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.project-name {
+  grid-column: 1 / 2;
+  padding: 7px 0; /* Padding um das Klickfeld zu vergrößern*/
+  font-size: 14px;
+}
+
+.button-wrapper {
+  display: grid;
+  grid-column: 2 / -1;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  border-left: 1px solid lightgray;
+  padding-left: 5px;
+}
+
+.task .button-wrapper {
+  padding-right: 10px;
+  grid-row: 1 / -1;
+  text-align: center;
+}
+
+.edit-btn {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+.edit-btn i,
+.trash-btn i,
+.priority-btn i {
+  font-size: 14px;
+}
+
+.trash-btn {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+
+.priority-btn {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.fa-trash-alt:hover,
+.fa-ellipsis-v:hover,
+.fa-exclamation:hover {
+  color: grey;
+}
+
+.fa-trash-alt:active,
+.fa-ellipsis-v:active,
+.fa-exclamation:active {
+  color: lightgray;
+}
+
+/* Toggle class important */
+
+.important {
+  font-weight: bold;
+  color: rgba(255, 0, 0, 0.7);
+}
+
+.edit-project-title {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+/* Edited field */
+
+.edited {
+  background: rgba(95, 168, 211, 0.2);
+  box-shadow: 1px 1px 3px #5fa8d3;
+  animation: colorfade 0.2 ease-in-out;
+}
+
+@keyframes colorfade {
+  from {
+    background: white;
+    box-shadow: none;
+  }
+  to {
+    background: rgba(95, 168, 211, 0.2);
+    box-shadow: 1px 1px 3px #5fa8d3;
+  }
+}
+
+/* Selected Project */
+
+.selected-project {
+  background: rgba(95, 168, 211, 0.4);
+  border-radius: 5px;
+  animation: selPro 0.1s ease-in;
+  color: #5fa8d3;
+}
+
+@keyframes selPro {
+  from {
+    background: white;
+    left: 0;
+  }
+  to {
+    background: rgba(95, 168, 211, 0.3);
+    left: 100%;
+  }
+}
+
+/* Folder Section */
+
+/* .overview-sec {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+} */

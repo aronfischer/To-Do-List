@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/82fbf1f44c.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Doable</title>
+    <link rel="stylesheet" href="reset-style.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="overview-sec"></section>
+      <section class="project-sec">
+        <h1>DOABLE - Your To-Do-List of choice</h1>
+        <div class="default-div">
+          <div class="projects-overview">
+            <div class="folder-name">
+              <div class="close-folder-btn">X</div>
+              <span>Folder Name</span>
+            </div>
+            <div class="project-name-label">
+              <h3>Project Name</h3>
+            </div>
+            <div class="project">
+              <div class="project-create">
+                <div class="form">
+                  <input
+                    id="project-input"
+                    type="text"
+                    name="project-name"
+                    autocomplete="off"
+                    required
+                  />
+                  <label class="label" for="project-name"
+                    ><span class="content">New Project</span></label
+                  >
+                </div>
+                <button class="submit-project-btn" type="submit">
+                  <i class="fas fa-plus"></i>
+                </button>
+                <button class="cancel-project-btn">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="project-display"></div>
+          </div>
+          <div class="task-sec">
+            <div class="task-title">Task Title</div>
+            <div class="task-manager">
+              <div class="toggle-create-task">
+                <button>Add new task</button>
+              </div>
+              <div class="create-task">
+                <div class="form">
+                  <input
+                    id="task-title"
+                    type="text"
+                    name="title"
+                    autocomplete="off"
+                    required
+                  />
+                  <label for="title" class="label"
+                    ><span class="content">Title</span></label
+                  >
+                </div>
+
+                <div class="form">
+                  <input
+                    id="task-deadline"
+                    type="date"
+                    name="deadline"
+                    autocomplete="off"
+                    required
+                  />
+                  <label for="deadline" class="label"
+                    ><span class="content">Deadline</span></label
+                  >
+                </div>
+
+                <div class="form">
+                  <input
+                    id="task-description"
+                    type="text"
+                    name="description"
+                    autocomplete="off"
+                    required
+                  />
+                  <label for="description" class="label"
+                    ><span class="content">Description</span></label
+                  >
+                </div>
+
+                <div class="form form-textarea">
+                  <textarea
+                    id="task-notes"
+                    type="text"
+                    name="notes"
+                    autocomplete="off"
+                    required
+                  ></textarea>
+                  <label for="notes" class="label label-textarea"
+                    ><span class="content content-textarea">Notes</span></label
+                  >
+                </div>
+
+                <div>
+                  <button class="submit-btn" type="submit">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                  <button class="cancel-task-btn">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="task-display"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
